@@ -5,11 +5,12 @@ import {IncomeExpenses} from './components/IncomeExpenses'
 import {TransactionList} from './components/TransactionList'
 import {AddTransaction} from './components/AddTransaction'
 
+import {GlobalProvider} from './context/GlobalState'
 import './App.css'
 
 function App() {
   return (
-    <div className="App">
+    <GlobalProvider>
       <Header />
       <div className="container">
         <Balance />
@@ -17,8 +18,11 @@ function App() {
         <TransactionList />
         <AddTransaction />
       </div>
-    </div>
+    </GlobalProvider>
   );
 }
 
 export default App;
+
+//https://www.youtube.com/watch?v=XuFDcZABiDQ&list=PLillGF-RfqbY3c2r0htQyVbDJJoBFE6Rb
+// 26:40 부터
