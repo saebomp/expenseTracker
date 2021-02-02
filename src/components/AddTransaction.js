@@ -17,6 +17,8 @@ export const AddTransaction = () => {
       // +amount : string을 number로 바꿔줌
     }
     addTransaction(newTransaction)
+    setText('')
+    setAmount('')
     //addTransaction 를 call 하고 newTransaction를 pass해줌
   }
 
