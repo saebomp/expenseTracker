@@ -12,7 +12,7 @@ function App() {
   return (
     <GlobalProvider>
       <Header />
-      <div className="container">
+      <div className="grid grid-cols-1">
         <Balance />
         <IncomeExpenses />
         <TransactionList />

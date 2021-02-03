@@ -17,15 +17,17 @@ export const IncomeExpenses = () => {
     ).toFixed(2)
 
   return (
-  <div className="inc-exp-container">
-    <div>
-      <h4>Income</h4>
-      <p className="money plus">${income}</p>
+    <>
+    <div className="bg-white shadow-lg group block rounded-lg p-4 border flex flex-row divide-x mt-12">
+      <div className="w-6/12 text-center">
+        <h4>Income</h4>
+        <p className="text-customgreen-900 text-xl font-semibold">${income}</p>
+      </div>
+      <div className="w-6/12 text-center">
+        <h4>Expense</h4>
+        <p className="text-customred-900 text-xl font-semibold">${expense}</p>
+      </div>
     </div>
-    <div>
-      <h4>Expense</h4>
-      <p className="money minus">${expense}</p>
-    </div>
-  </div>
+  </>
   )
 }

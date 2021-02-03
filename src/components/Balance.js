@@ -10,9 +10,19 @@ export const Balance = () => {
   //reduce 로 amount array안에 있는 값 다 더해줌
 
   return (
-    <div>
-      <h4>Your Balance</h4>
-      <h1>${total}</h1>
+    <div className="mt-20">
+      <div className="items-center">
+        <div>
+          <h1 className="leading-6 text-lg text-black">
+            Your Balance
+          </h1>
+        </div>
+        <div>
+          <h2 className="text-4xl font-semibold">
+            ${total}
+          </h2>
+        </div>
+      </div>
     </div>
   )
 }

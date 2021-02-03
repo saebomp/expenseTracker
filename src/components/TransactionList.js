@@ -11,8 +11,8 @@ export const TransactionList = () => {
 
   return (
     <>
-      <h3>History</h3>
-      <ul className="list">
+      <h3 className="leading-6 text-lg text-black mt-12 mb-4">History</h3>
+      <ul className="">
         {transactions.map(transaction => (
           <Transaction 
             key={transaction.id}
