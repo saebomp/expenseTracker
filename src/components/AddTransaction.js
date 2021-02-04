@@ -4,23 +4,30 @@ import {GlobalContext} from '../context/GlobalState'
 export const AddTransaction = () => {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState(0)
+  const [modal, setModal] = useState(false)
 
   const {addTransaction} = useContext(GlobalContext)
+
   const onSubmit = e => {
     e.preventDefault();
 
-    const newTransaction = {
-      //random id 만들기
-      id: Math.floor(Math.random()*100000000),
-      text:text,
-      amount: +amount 
-      // +amount : string을 number로 바꿔줌
+    if(text.length > 0 && amount.length > 0 ) {
+      const newTransaction = {
+        //random id 만들기
+        id: Math.floor(Math.random()*100000000),
+        text:text,
+        amount: +amount 
+        // +amount : string을 number로 바꿔줌
+      }
+      addTransaction(newTransaction)
+      setText('')
+      setAmount('')
+      //addTransaction 를 call 하고 newTransaction를 pass해줌
+    } else {
+      setModal(true)
     }
-    addTransaction(newTransaction)
-    setText('')
-    setAmount('')
-    //addTransaction 를 call 하고 newTransaction를 pass해줌
-  }
+
+}
 
   return (
     <>
@@ -48,8 +55,17 @@ export const AddTransaction = () => {
             placeholder="Enter amount..." 
           />
         </div>
-        <button className="w-full mt-5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-2 text-white hover:bg-gradient-to-l hover:from-pink-500 hover:to-yellow-400">Add transaction</button>
+        <button className="w-full mt-5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-2 text-white hover:bg-gradient-to-l hover:from-pink-500 hover:to-yellow-400">
+          Add transaction
+        </button>
       </form>
+      {modal ?
+        <div>
+          <div>Please enter a valid value</div>
+          <button onClick={() => setModal(false)}>x</button>
+        </div>
+        : null
+        }
     </>
   )
 }
