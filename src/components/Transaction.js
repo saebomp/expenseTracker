@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {GlobalContext} from '../context/GlobalState'
+import NumberFormat from 'react-number-format';
 
 export const Transaction = ({transaction}) => {
   const {deleteTransaction} = useContext(GlobalContext)
@@ -9,7 +10,8 @@ export const Transaction = ({transaction}) => {
     <li className={transaction.amount < 0 ? 'position: relative shadow border-r-4 border-customred-900 p-3 mb-3 bg-white' : 'position: relative shadow border-r-4 border-customgreen-900 p-3 mb-3 bg-white'}>
       {transaction.text} 
       <span className="float-right">
-        {sign}${Math.abs(transaction.amount)}
+        {sign}
+        <NumberFormat value={Math.abs(transaction.amount)} displayType={'text'} thousandSeparator={true} prefix={'$'} />
       </span>
       {/* Math.abs : 숫자 positive number 로 바꿔줌*/}
       <button 

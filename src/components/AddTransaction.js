@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react'
 import {GlobalContext} from '../context/GlobalState'
+import NumberFormat from 'react-number-format';
 
 export const AddTransaction = () => {
   const [text, setText] = useState('')
@@ -26,7 +27,6 @@ export const AddTransaction = () => {
     } else {
       setModal(true)
     }
-
 }
 
   return (
@@ -38,7 +38,7 @@ export const AddTransaction = () => {
           <input 
             type="text" 
             value={text} 
-            className="w-full p-2 placeholder-gray-400 border border-gray-200 focus:border-gray-900"
+            className="w-full p-2 placeholder-gray-400 border border-gray-200 focus:border-gray-900 focus:outline-none"
             onChange={(e) => setText(e.target.value)} 
             placeholder="Enter text..." 
           />
@@ -47,15 +47,21 @@ export const AddTransaction = () => {
           <label htmlFor='amount' className="block mt-5">
             Amount <span className="text-sm">(negative : expense, positive : income)</span>
           </label>
-          <input
-            type="number"
-            value={amount}
-            className="w-full p-2 placeholder-gray-400 border border-gray-200 focus:border-gray-900"
-            onChange={(e) => setAmount(e.target.value)} 
+          <NumberFormat 
+            value={amount} 
+            displayType={'input'} 
+            thousandSeparator={true}
+            className="w-full p-2 placeholder-gray-400 border border-gray-200 focus:border-gray-900 focus:outline-none"
+            onChange={(e) => {
+              setAmount(e.target.value.replace(/,/,''))
+            }}
             placeholder="Enter amount..." 
+            onFocus={ () => {
+              setAmount('')
+            }}
           />
         </div>
-        <button className="w-full mt-5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-2 text-white hover:bg-gradient-to-l hover:from-pink-500 hover:to-yellow-400">
+        <button className="w-full mt-5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-2 text-white hover:bg-gradient-to-l hover:from-pink-500 hover:to-yellow-400 focus:outline-none">
           Add transaction
         </button>
       </form>
@@ -63,7 +69,7 @@ export const AddTransaction = () => {
         <div className="position: absolute top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 w-6/12 rounded shadow-lg p-8 text-center">
           <div>Please enter a valid value</div>
           <button 
-            className="position: absolute top-2 right-4 z-10 cursor-pointer text-2xl"
+            className="position: absolute top-2 right-4 z-10 cursor-pointer text-2xl focus:outline-none"
             onClick={() => setModal(false)}
           >x
           </button>

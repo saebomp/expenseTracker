@@ -1,14 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css?family=Lato&display=swap'); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-input:focus, button:focus {
-  outline: none;
-}
 
