@@ -60,9 +60,13 @@ export const AddTransaction = () => {
         </button>
       </form>
       {modal ?
-        <div>
+        <div className="position: absolute top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 w-6/12 rounded shadow-lg p-8 text-center">
           <div>Please enter a valid value</div>
-          <button onClick={() => setModal(false)}>x</button>
+          <button 
+            className="position: absolute top-2 right-4 z-10 cursor-pointer text-2xl"
+            onClick={() => setModal(false)}
+          >x
+          </button>
         </div>
         : null
         }
