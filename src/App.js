@@ -4,6 +4,7 @@ import {Balance} from './components/Balance'
 import {IncomeExpenses} from './components/IncomeExpenses'
 import {TransactionList} from './components/TransactionList'
 import {AddTransaction} from './components/AddTransaction'
+import {Chart} from './components/Chart'
 
 import {GlobalProvider} from './context/GlobalState'
 import './App.css'
@@ -17,6 +18,7 @@ function App() {
         <IncomeExpenses />
         <TransactionList />
         <AddTransaction />
+        <Chart />
       </div>
     </GlobalProvider>
   );
@@ -26,3 +28,5 @@ export default App;
 
 //https://www.youtube.com/watch?v=XuFDcZABiDQ&list=PLillGF-RfqbY3c2r0htQyVbDJJoBFE6Rb
 
+//d3
+//https://medium.com/stationfive/how-to-create-a-pie-chart-with-d3-js-and-react-hooks-part-1-81bcd7f39b32
