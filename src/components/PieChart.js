@@ -5,7 +5,11 @@ const PieChart = props => {
   const ref = useRef(null);
   const createPie = d3
     .pie()
-    .value(d => d.amount)
+    .value(d => {
+      if(d.amount > 0){
+      return d.amount
+      }
+    })
     .sort(null);
   const createArc = d3
     .arc()
@@ -43,10 +47,34 @@ const PieChart = props => {
       text
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
+        .attr("x", "0")
+        .attr("y", "10")
         .attr("transform", d => `translate(${createArc.centroid(d)})`)
-        .style("fill", "white")
+        .style("fill", "black")
         .style("font-size", 10)
-        .text(d => format(d.amount));
+        .text(d => {
+          if(d.value > 0){
+          return d.data.text
+          }
+        })
+
+      const text2 = groupWithUpdate
+        .append("text")
+        .merge(groupWithData.select("text2"));
+
+      text2
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("x", "0")
+        .attr("y", "25")
+        .attr("transform", d => `translate(${createArc.centroid(d)})`)
+        .style("fill", "black")
+        .style("font-size", 10)
+        .text(d => {
+          if(d.value > 0){
+          return d.data.amount
+          }
+        })
     },
     [props.data]
   );

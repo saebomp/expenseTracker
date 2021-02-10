@@ -5,7 +5,7 @@ import PieChart from "./PieChart";
 // import PieSVG from "./PieSVG";
 
 export const Chart = () => {
-  // const {transactions} = useContext(GlobalContext);
+  const {transactions} = useContext(GlobalContext);
 
   // const generateData = (value, length = 5) =>
   //   d3.range(length).map((item, index) => ({
@@ -13,12 +13,6 @@ export const Chart = () => {
   //     value: value === null || value === undefined ? Math.random() * 100 : value
   //   }));
 
-  const transactions = [
-        {id:1, date:'Flower', amount:-100},
-        {id:2, date:'Salary', amount:1200},
-        {id:3, date:'Book', amount:-200},
-        {id:4, date:'Camera', amount:800},
-      ]
 
   const [data, setData] = useState(transactions);
   const changeData = () => {
