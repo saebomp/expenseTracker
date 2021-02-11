@@ -1,16 +1,19 @@
 import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
+
 const PieChart = props => {
-  const amounts = props.data.map(item => item.amount);
+  const amounts = props.data.filter(transactions => transactions.amount < 0).map(item => item.amount);
   let total = amounts.reduce((acc, item) => (acc += item), 0);
+  //get only negative numbers (expense) from the array
 
   const ref = useRef(null);
   const createPie = d3
-    .pie()
-    .value(d => {
-      if(d.amount > 0){
-      return d.amount
+  .pie()
+  .value(d => {
+    if(d.amount < 0){
+      return Math.abs(d.amount)
+      //converted to positive number
       }
     })
     .sort(null);
@@ -50,7 +53,7 @@ const PieChart = props => {
       text
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
-        .attr("x", "0")
+        .attr("x", "-5")
         .attr("y", "10")
         .attr("transform", d => `translate(${createArc.centroid(d)})`)
         .style("fill", "black")
@@ -68,14 +71,14 @@ const PieChart = props => {
       text2
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
-        .attr("x", "0")
+        .attr("x", "-5")
         .attr("y", "25")
         .attr("transform", d => `translate(${createArc.centroid(d)})`)
         .style("fill", "black")
         .style("font-size", 10)
         .text(d => {
           if(d.value > 0){
-            return ((d.value * 100) / total).toFixed(2) + ' %'
+          return ((d.value * 100) / Math.abs(total)).toFixed(2) + ' %'
           }
         })
     },
