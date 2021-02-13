@@ -13,6 +13,7 @@
     "postcss": "^7.0.35",
     "react": "0.0.0-bbb2ba8c8",
     "react-dom": "0.0.0-bbb2ba8c8",
+    "react-icons": "^4.2.0",
     "react-number-format": "^4.4.4",
     "react-scripts": "4.0.1",
     "react-spring": "^8.0.27",

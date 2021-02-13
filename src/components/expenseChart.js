@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
 
-const PieChart = props => {
+const ExpenseChart = props => {
   const amounts = props.data.filter(transactions => transactions.amount < 0).map(item => item.amount);
   let total = amounts.reduce((acc, item) => (acc += item), 0);
   //get only negative numbers (expense) from the array
@@ -95,4 +95,4 @@ const PieChart = props => {
   );
 };
 
-export default PieChart;
+export default ExpenseChart;

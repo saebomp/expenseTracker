@@ -1,9 +1,12 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import {GlobalContext} from '../context/GlobalState'
 import NumberFormat from 'react-number-format';
+import {Chart} from './Chart'
+import { FcBarChart } from 'react-icons/fc';
 
 export const IncomeExpenses = () => {
   const {transactions} = useContext(GlobalContext)
+  const [modal, setModal] = useState(false)
 
   const amounts = transactions.map(transaction => transaction.amount)
 
@@ -25,6 +28,25 @@ export const IncomeExpenses = () => {
         <p className="text-customgreen-900 text-xl font-semibold">
           <NumberFormat value={income} displayType={'text'} thousandSeparator={true} prefix={'$'} />
         </p>
+        <div>
+          <span>
+            <button
+              onClick={() => setModal(true)}
+            >
+              View Chart
+            </button>
+          </span>
+          <span>
+            <FcBarChart />
+          </span>
+        </div>
+
+        {modal ?
+          <div>
+            <Chart />
+          </div>
+          : null
+          }
       </div>
       <div className="w-6/12 text-center">
         <h4>Expense</h4>
@@ -33,6 +55,8 @@ export const IncomeExpenses = () => {
         </p>
       </div>
     </div>
+
+    
   </>
   )
 }
