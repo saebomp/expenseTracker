@@ -11,14 +11,12 @@ export const Chart = () => {
   };
 
   return (
-    <div className="App">
-      <PieChart
-        data={data}
-        width={200}
-        height={200}
-        innerRadius={60}
-        outerRadius={100}
-      />
-    </div>
+    <PieChart
+      data={data}
+      width={300}
+      height={300}
+      innerRadius={110}
+      outerRadius={150}
+    />
   )
 }

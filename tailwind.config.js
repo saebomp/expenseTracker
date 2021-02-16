@@ -15,6 +15,9 @@ module.exports = {
         customgreen: {
           '900': '#438945',
         },
+        customtext: {
+          '900': '#00bcd4',
+        },
       }
     },
   },
