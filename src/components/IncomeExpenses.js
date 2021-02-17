@@ -1,12 +1,14 @@
 import React, {useContext, useState} from 'react'
 import {GlobalContext} from '../context/GlobalState'
 import NumberFormat from 'react-number-format';
-import {Chart} from './Chart'
+import {ChartI} from './ChartI'
+import {ChartE} from './ChartE'
 import { FcBarChart } from 'react-icons/fc';
 
 export const IncomeExpenses = () => {
   const {transactions} = useContext(GlobalContext)
   const [modal, setModal] = useState(false)
+  const [modal2, setModal2] = useState(false)
 
   const amounts = transactions.map(transaction => transaction.amount)
 
@@ -36,26 +38,50 @@ export const IncomeExpenses = () => {
             <span className="inline-block text-sm text-customtext-900">View Chart</span>
             <span className="inline-block absolute top-1"><FcBarChart /></span>
           </button>
-          
         </div>
 
         {modal ?
-          <div className="absolute z-10 top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 bg-gray-200 rounded shadow-lg p-8 text-center flex justify-center">
-            <Chart />
+        <div className="absolute w-full h-full bg-gray-900 bg-opacity-20 z-50 top-0 left-0">
+          <div className="absolute z-60 top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 rounded shadow-lg p-8 text-center flex justify-center opacity-100">
+            <ChartI />
             <button 
               className="absolute top-2 right-4 z-10 cursor-pointer focus:outline-none outline-none text-xl"
               onClick={() => setModal(false)}
               >x
             </button>
           </div>
-          : null
-          }
+        </div>
+        : null
+        }
       </div>
       <div className="w-6/12 text-center">
         <h4>Expense</h4>
         <p className="text-customred-900 text-2xl font-semibold">
           <NumberFormat value={expense} displayType={'text'} thousandSeparator={true} prefix={'$'} />
         </p>
+        <div>
+          <button
+            className="relative focus:outline-none"
+            onClick={() => setModal2(true)}
+          >
+            <span className="inline-block text-sm text-customtext-900">View Chart</span>
+            <span className="inline-block absolute top-1"><FcBarChart /></span>
+          </button>
+        </div>
+
+        {modal2 ?
+        <div className="absolute w-full h-full bg-gray-900 bg-opacity-20 z-50 top-0 left-0">
+          <div className="absolute z-10 top-2/4 left-2/4 transform -translate-x-1/2 -translate-y-1/2 bg-gray-100 rounded shadow-lg p-8 text-center flex justify-center">
+            <ChartE />
+            <button 
+              className="absolute top-2 right-4 z-10 cursor-pointer focus:outline-none outline-none text-xl"
+              onClick={() => setModal2(false)}
+              >x
+            </button>
+          </div>
+        </div>
+        : null
+        }
       </div>
     </div>
 

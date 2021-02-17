@@ -53,8 +53,8 @@ const ExpenseChart = props => {
       text
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
-        .attr("x", "-5")
-        .attr("y", "10")
+        .attr("x", "0")
+        .attr("y", "0")
         .attr("transform", d => `translate(${createArc.centroid(d)})`)
         .style("fill", "black")
         .style("font-size", 10)
@@ -71,8 +71,8 @@ const ExpenseChart = props => {
       text2
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
-        .attr("x", "-5")
-        .attr("y", "25")
+        .attr("x", "0")
+        .attr("y", "10")
         .attr("transform", d => `translate(${createArc.centroid(d)})`)
         .style("fill", "black")
         .style("font-size", 10)

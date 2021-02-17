@@ -1,8 +1,8 @@
 import React, {useContext, useState } from 'react'
 import {GlobalContext} from '../context/GlobalState'
-import PieChart from "./PieChart";
+import ExpenseChart from "./ExpenseChart";
 
-export const Chart = () => {
+export const ChartE = () => {
   const {transactions} = useContext(GlobalContext);
 
   const [data, setData] = useState(transactions);
@@ -11,7 +11,7 @@ export const Chart = () => {
   };
 
   return (
-    <PieChart
+    <ExpenseChart
       data={data}
       width={300}
       height={300}
