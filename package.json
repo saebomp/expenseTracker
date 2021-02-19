@@ -2,7 +2,7 @@
   "name": "reacthooks",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://saebomp.github.io/expensetracker",  
+  "homepage": "https://saebomp.github.io/expenseTracker",  
   "dependencies": {
     "@craco/craco": "^6.1.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
