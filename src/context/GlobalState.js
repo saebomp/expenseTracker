@@ -5,15 +5,19 @@ import AppReducer from './AppReducer'
 const initialState = {
   transactions: [
     {id:1, text:'Flower', amount:-100},
-    {id:2, text:'Salary', amount:1200},
-    {id:3, text:'Book', amount:-200},
-    {id:4, text:'Camera', amount:800},
+    {id:2, text:'Salary', amount:2200},
+    {id:3, text:'Books', amount:-150},
+    {id:4, text:'Stocks', amount:80},
+    {id:5, text:'Snacks', amount:-200},
+    {id:6, text:'Cloth', amount:-500},
   ]
 }
 
+localStorage.setItem("initialState", JSON.stringify(initialState));
 
 //Create context
 export const GlobalContext = createContext(initialState);
+
 
 //Provider component 20:10
 export const GlobalProvider = ({children}) => {
