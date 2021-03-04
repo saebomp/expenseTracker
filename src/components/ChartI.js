@@ -13,10 +13,10 @@ export const ChartI = () => {
   return (
     <IncomeChart
       data={data}
-      width={300}
-      height={300}
-      innerRadius={110}
-      outerRadius={150}
+      width={400}
+      height={400}
+      innerRadius={160}
+      outerRadius={200}
     />
   )
 }
