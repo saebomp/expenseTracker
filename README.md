@@ -5,7 +5,7 @@
 ## Technologies
 React / React Hooks / D3.js / tailwind
 ## Setup
-npm start
+npm start<br />
 https://saebomp.github.io/expenseTracker/
 ## Status
 Project is finished
