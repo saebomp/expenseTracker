@@ -13,7 +13,7 @@ const initialState = {
   ]
 }
 
-localStorage.setItem("initialState", JSON.stringify(initialState));
+// localStorage.setItem("initialState", JSON.stringify(initialState));
 
 //Create context
 export const GlobalContext = createContext(initialState);

@@ -62,7 +62,7 @@ export const AddTransaction = () => {
           />
         </div>
         <button className="w-full mt-5 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 py-2 text-white hover:bg-gradient-to-l hover:from-pink-500 hover:to-yellow-400 focus:outline-none">
-          Add transaction
+          Add Transaction
         </button>
       </form>
       {modal ?
