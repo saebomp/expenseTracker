@@ -1,4 +1,4 @@
-## Expense Tracker
+## Quick Budget
 - It showcases the ability to create expenses / incomes lists and to remove them
 - Implemented the calculation functionality the total remaining budget and the total expenses / incomes.
 - Visualized data with D3.js
