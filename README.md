@@ -6,7 +6,7 @@
 React / React Hooks / D3.js / tailwind
 ## Setup
 npm start<br />
-https://saebomp.github.io/expenseTracker/
+https://saebomp.github.io/quick_budget/
 ## Status
 Project is finished
 ## Inspiration
